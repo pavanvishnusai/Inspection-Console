@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Inspection Console
 
-## Getting Started
+A small inspection console built with Next.js, React, TypeScript, and Tailwind. Inspectors can pick a mock form, fill it out with different field types, capture signatures/photos, save the results in browser storage, and download a PDF report.
 
-First, run the development server:
-
+### Install & Run
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Visit http://localhost:3000 and choose any inspection form.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
+- `npm run dev` – start the local dev server
+- `npm run lint` – run ESLint (should pass before deploying)
+- `npm run build` – production build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Features
+- Forms are defined once in `src/lib/forms.ts` and rendered dynamically.
+- `/inspect/[formId]` supports boolean, number, select, text, textarea inputs plus signature and photo uploads.
+- Records save to `localStorage`; history lives at `/history` and `/history/[id]`.
+- Shared helpers in `src/lib/pdf.ts` generate formatted PDF reports.
+- Toast notifications confirm saves, deletes, and download issues.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All data stays in the browser; clearing storage removes saved inspections.
