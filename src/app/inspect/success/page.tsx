@@ -1,9 +1,10 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useRecordsStore } from "@/hooks/useRecordsStore";
 
-export default function SuccessPage() {
+function SuccessContent() {
   const router = useRouter();
   const params = useSearchParams();
   const recordId = params.get("id");
@@ -72,5 +73,19 @@ export default function SuccessPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="text-center text-gray-400 mt-20 text-xl">
+          Loading inspection…
+        </div>
+      }
+    >
+      <SuccessContent />
+    </Suspense>
   );
 }
