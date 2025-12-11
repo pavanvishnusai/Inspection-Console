@@ -7,7 +7,7 @@ A small inspection console built with Next.js, React, TypeScript, and Tailwind. 
 npm install
 npm run dev
 ```
-Visit http://localhost:3000 and choose any inspection form.
+Visit https://main.d3kai7nnpk5i54.amplifyapp.com/ and choose any inspection form.
 
 ### Scripts
 - `npm run dev` – start the local dev server
